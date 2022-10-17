@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="CSS/Layout.css" type="text/css" />
+    <style type="text/css">
+        span{
+            color: red;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: small;
+            font-weight: bold;
+        }
+    </style>
+    <script language="Javascript">
+        // Lấy giá trị của một input : bỏ khoảng trắng 2 đầu
+        function getValue(id) {
+            return document.getElementById(id).value.trim();
+        }
+
+        // Hiển thị lỗi
+        function showError(key, mess) {
+            document.getElementById(key + '_error').innerHTML = mess;
+        }
+        function login() {
+            var flag = true;
+            // 1 username
+            var username = getValue('username');
+            if (username == '' || 8 < username.length < 2 || !/^[a-zA-Z0-9]+$/.test(username)) {
+                flag = false;
+                showError('username', 'Vui lòng kiểm tra lại Username');
+            }
+            // 2. password
+            var password = getValue('pass');
+            if (password == '' || password.length < 8) {
+                flag = false;
+                showError('pass', 'Vui lòng kiểm tra lại Password');
+            }
+            return flag;
+        }
+    </script>
+</head>
+<body>
+    <div class="header" style="background-image: url(img/images02.png);">
+        <br /><br /><br /><br />
+        <div style="width: 900px; float:right;">
+            <font size="50" color="#00fff">
+                <b>Khóa 2021-2027</b>
+            </font>
+        </div>
+    </div>
+    <div class="topnav">
+        <a href="TrangChu.html">Trang chủ</a>
+        <a href="DaoTao.html">Đào tạo</a>
+        <a href="#">Liên hệ</a>
+        <a href="DangNhap.html" style="float: right;">Đăng nhập</a>
+    </div>
+    <div class="main">
+        <div class="left">
+            <div style="text-align: center;"><h2>Các ngành đào tạo</h2></div>
+            <ul>
+                <li><h4><a href="#">Công nghệ thông tin</a></h4></li>
+                <li><h4><a href="#">Ngoại ngữ</a></h4></li>
+                <li><h4><a href="#">Quản trị kinh doanh</a></h4></li>
+                <li><h4><a href="#">Quan hệ quốc tế</a></h4></li>
+                <li><h4><a href="#">Đông phương</a></h4></li>
+                <li><h4><a href="#">Du lịch - Khách sạn</a></h4></li>
+            </ul>
+            <br /><br /><br /><br />
+        </div>
+        <div class="center">
+            <div align="center">
+                <form style="width: 600px; height: 400px; font-size: 25px; background-image: url(img/Khung02.jpg);">
+                    <br /><br />
+                    <h1>Đăng nhập</h1>
+                    <div>
+                        <i><b> UserName </b></i><br>
+                        <input id="username" type="text" placeholder="Nhập username">
+                        <span id="username_error"></span>
+                    </div>
+                    <div>
+                        <i><b> Password </b></i><br>
+                        <input id="pass" type="password" placeholder="Nhập mật khẩu">
+                        <span id="pass_error"></span>
+                    </div>
+                    <div>
+                        <input type="submit" onclick="return login();" id="button" value="Đăng Nhập">
+                        <button id="reset" type="reset">Reset</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        <div class="right">
+            <div style="text-align: center;">
+                <h2>Tuyển sinh cao học</h2>
+                <img src="img/Tuyensinh1.jpg" alt="Tuyensinh1">
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <h1>Khoa Công nghệ thông tin, Khóa 2021 (K27)</h1>
+    </div>
+</body>
+</html>
